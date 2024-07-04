@@ -1,3 +1,4 @@
+.git
 */*/config.old
 */*/rootfs_config.old
 build/
@@ -10,4 +11,3 @@ pre-built/linux/
 *.log
 /components/plnx_workspace
 /components/yocto
-petalinux*.run
