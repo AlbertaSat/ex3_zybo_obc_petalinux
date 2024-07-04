@@ -51,18 +51,19 @@ RUN echo "petalinux ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ARG PETA_RUN_FILE="petalinux-v2022.2-10141622-installer.run"
 
 # Copy the installer and the EULA acceptance script to the container
-COPY ./accept-eula.sh /home/petalinux
+COPY ./accept_eula.sh /home/petalinux
+COPY ./build_image.sh /home/petalinux
 COPY ./petalinux-v2022.2-10141622-installer.run /home/petalinux
 
 WORKDIR /home/petalinux
 
 # Run the Petalinux installer
 RUN chmod a+rx /home/petalinux/${PETA_RUN_FILE}
-RUN chmod a+rx /home/petalinux/accept-eula.sh
+RUN chmod a+rx /home/petalinux/accept_eula.sh
 RUN mkdir -p /opt/Xilinx
 RUN chmod 777 /tmp /opt/Xilinx
 RUN cd /tmp
-RUN sudo -u petalinux -i /home/petalinux/accept-eula.sh /home/petalinux/${PETA_RUN_FILE} /opt/Xilinx/petalinux
+RUN sudo -u petalinux -i /home/petalinux/accept_eula.sh /home/petalinux/${PETA_RUN_FILE} /opt/Xilinx/petalinux
 RUN rm -f /home/petalinux/${PETA_RUN_FILE}
 
 RUN echo "root:petalinux" | chpasswd
