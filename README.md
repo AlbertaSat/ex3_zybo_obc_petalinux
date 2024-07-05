@@ -6,7 +6,7 @@ This project contains the petalinuxz configuration for the Zybo Test OBC.
 
 ### Docker
 
-To build the docker image, download the desired petalinux install then run the following command:
+To build the docker image, download the desired petalinux install and place it in this projects root folder then run the following command:
 
 ```bash
 # Optional build arguments:
