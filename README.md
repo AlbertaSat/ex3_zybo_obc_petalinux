@@ -26,6 +26,7 @@ Since this project should already be preconfigured and include an exported Vivad
 
 ```bash
 # Sometimes previous configurations can cause issues, so it is recommended to start with a clean configuration
+# Subsequent builds can skip this step
 petalinux-build -x mrproper 
 
 # Configure the project
@@ -76,7 +77,22 @@ To flash the SD card, insert the SD card into the computer and run the following
 # Flash SD card, where /dev/sdX is the SD card
 # Caution: This command can be dangerous if the wrong device is selected
 # please ensure the correct device is selected!!!!
-sudo dd if=images/linux/petalinux-sdimage.wic of=/dev/sdX conv=fsync bs=4M status=progress
+sudo dd if=images/linux/petalinux-sdimage.wic of=/dev/sdX conv=fsync bs=4M status=progress oflag=direct
+
+# conv=fsync: Flush the write cache after each block
+# bs=4M: Write in 4MB blocks
+# status=progress: Show progress
+# oflag=direct: Write directly to the device
+# note that oflag is a GNU extension, not found on MacOS/BSD
+```
+
+This process of flashing the SD card will end up in empty space on the SD card. The partition can be resized to fill the entire SD card using the following commands:
+
+```bash
+# Resize partition
+sudo parted /dev/sdX resizepart 2 100%
+sudo e2fsck -f /dev/sdX2
+sudo resize2fs /dev/sdX2
 ```
 
 ## Notes
