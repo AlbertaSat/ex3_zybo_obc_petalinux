@@ -59,7 +59,7 @@ The wic image can then be used to either create a bootable SD card or emulate th
 
 ### Qemu Emulation
 
-Simply run the following command to emulate the system using QEMU:
+Simply run the following command to emulate the system using QEMU after you have created the boot image:
 
 ```bash
 # Run QEMU

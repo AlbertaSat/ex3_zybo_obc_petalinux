@@ -30,6 +30,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
   texinfo \
   tftpd \
   xterm \
+  xxd \
   xz-utils \
   zlib1g-dev \
   && apt-get clean \
