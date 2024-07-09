@@ -73,11 +73,37 @@ To quit QEMU `Ctrl + A` then `x`.
 
 ### Flash SD Card
 
+### Method 1: Full image using Balena Etcher (Recommended)
+
+One of the most popular tools for flashing SD cards is [Balena Etcher](https://www.balena.io/etcher/). It is easy to use, multi-platform, post-flashing validation, and can make clones of SD cards.
+
+Note: There seems to be some issues with the current version of Balena Etcher not spawning its utility program correctly (see [this issue](https://github.com/balena-io/etcher/issues/4150)), it is recommended to use an version 1.18.11 from their [github releases page](https://github.com/balena-io/etcher/releases/tag/v1.18.11).
+
+1. Download and install Balena Etcher
+2. Open Balena Etcher
+3. Click `Flash from file` and select the wic image
+4. Click `Select target` and select the SD card you want to flash
+5. Click `Flash!` and wait for the process to complete
+6. Once the process is done, you should use the following command to resize the root filesystem partition to fill the entire SD card:
+
+    ```bash
+    # This should ideally be a script ran in u-boot on first boot
+    # Resize partition
+    sudo parted /dev/sdX resizepart 2 100%
+    sudo e2fsck -f /dev/sdX2
+    sudo resize2fs /dev/sdX2
+    ```
+
+#### Method 2: Full image using dd
+
 To flash a blank SD card, insert the SD card into the computer and run the following command:
+
+Note: It is recommended to format the SD card before flashing to ensure that the card is empty with no partitions.
 
 ```bash
 # Flash SD card, where /dev/sdX is the SD card
 # Caution: This command can be dangerous if the wrong device is selected
+# potentially overwriting important data and corrupting your system
 # please ensure the correct device is selected!!!!
 sudo dd if=images/linux/petalinux-sdimage.wic of=/dev/sdX conv=fsync bs=4M status=progress oflag=direct
 
@@ -91,11 +117,29 @@ sudo dd if=images/linux/petalinux-sdimage.wic of=/dev/sdX conv=fsync bs=4M statu
 This process of flashing the SD card will end up with empty unpartitioned space on the SD card. The root filesystem partition can be resized to fill the entire SD card using the following commands:
 
 ```bash
+# This should ideally be a script ran in u-boot on first boot
 # Resize partition
 sudo parted /dev/sdX resizepart 2 100%
 sudo e2fsck -f /dev/sdX2
 sudo resize2fs /dev/sdX2
 ```
+
+#### Method 3: Individual partitions (Not recommended)
+
+If you already have a bootable SD card that is partitioned correctly, you can copy the individual partitions files to the SD card.
+
+First mount the boot partition and copy the following files from `images/linux/` to the boot partition:
+
+- BOOT.BIN
+- boot.scr
+- uImage
+
+Then use the following command to copy the root fs tarball onto the root partition:
+
+```bash
+sudo dd if=images/linux/rootfs.tar.gz of=/dev/sdX2 conv=fsync bs=4M status=progress oflag=direct
+```
+
 
 ## Zybo Setup
 
