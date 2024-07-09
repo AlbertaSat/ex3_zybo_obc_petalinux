@@ -147,11 +147,50 @@ petalinux-config -c rootfs
 # Set the following options:
 # Filesystem packages -> admin -> sudo
 # Filesystem packages -> base -> busybox -> busybox
+# Filesystem packages -> base -> e2fsprogs -> e2fsprogs
+# Filesystem packages -> base -> e2fsprogs -> e2fsprogs-resize2fs
+# Filesystem packages -> base -> e2fsprogs -> e2fsprogs-e2fsck
+# Filesystem packages -> base -> i2ctools -> i2ctools
+# Filesystem packages -> base -> i2ctools -> i2ctools-dev
+# Filesystem packages -> base -> tzdata -> tzdata
+# Filesystem packages -> base -> tar -> tar
+# Filesystem packages -> base -> xz -> xz
 # Filesystem packages -> base -> shell -> bash
 # Filesystem packages -> base -> dnf -> dnf
+# Filesystem packages -> benchmark -> tests -> dhrystone -> dhrystone
+# Filesystem packages -> benchmark -> tests -> linpack -> linpack
+# Filesystem packages -> benchmark -> tests -> whetstone -> whetstone
 # Filesystem packages -> console -> network -> wget -> wget
+# Filesystem packages -> console -> network -> curl -> curl
+# Filesystem packages -> console -> network -> rsync -> rsync
+# Filesystem packages -> console -> tools -> parted -> parted
+# Filesystem packages -> console -> utils -> bash-completion -> bash-completion
+# Filesystem packages -> console -> utils -> file -> file
+# Filesystem packages -> console -> utils -> git -> git
+# Filesystem packages -> console -> utils -> git -> git-bash-completion
+# Filesystem packages -> console -> utils -> grep -> grep
+# Filesystem packages -> console -> utils -> man -> man
+# Filesystem packages -> console -> utils -> man-pages -> man-pages
+# Filesystem packages -> console -> utils -> screen -> screen
+# Filesystem packages -> console -> utils -> sed -> sed
+# Filesystem packages -> console -> utils -> unzipo -> unzip
+# Filesystem packages -> console -> utils -> vim -> vim
+# Filesystem packages -> console -> utils -> zip -> zip
+# Filesystem packages -> devel -> autoconf -> autoconf
+# Filesystem packages -> devel -> automake -> automake
+# Filesystem packages -> devel -> binutils -> binutils
+# Filesystem packages -> devel -> expect -> expect
+# Filesystem packages -> devel -> make -> make
+# Filesystem packages -> misc -> ca-certificates -> ca-certificates
+# Filesystem packages -> misc -> gdb -> gdb
+# Filesystem packages -> misc -> gdb -> gdbserver
+# Filesystem packages -> misc -> net-tools -> net-tools
 # Filesystem packages -> misc -> packagegroup-core-buildessential -> packagegroup-core-buildessential
-# Filesystem packages -> misc -> packagegroup-core-tools-debug -> packagegroup-core-tools-debug
+# Filesystem packages -> misc -> packagegroup-core-tools-debug -> packagegroup-core-tools-debugl
+# Filesystem packages -> net -> netcat -> netcat
+# Filesystem packages -> net -> tcpdump -> tcpdump
 # Petalinux Package Groups -> packagegroup-petalinux -> packagegroup-petalinux
+# Petalinux Package Groups -> packagegroup-petalinux-networking-debug -> packagegroup-petalinux-networking-debug
 # Petalinux Package Groups -> packagegroup-petalinux-networking-stack -> packagegroup-petalinux-networking-stack
+# Petalinux Package Groups -> packagegroup-petalinux-lmsensors -> packagegroup-petalinux-lmsensors
 ```

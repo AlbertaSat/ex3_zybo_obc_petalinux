@@ -105,10 +105,10 @@ CONFIG_dnf=y
 #
 # e2fsprogs 
 #
-# CONFIG_e2fsprogs is not set
-# CONFIG_e2fsprogs-resize2fs is not set
+CONFIG_e2fsprogs=y
+CONFIG_e2fsprogs-resize2fs=y
 # CONFIG_e2fsprogs-badblocks is not set
-# CONFIG_e2fsprogs-e2fsck is not set
+CONFIG_e2fsprogs-e2fsck=y
 # CONFIG_libss is not set
 # CONFIG_libcomerr is not set
 # CONFIG_libext2fs is not set
@@ -156,8 +156,8 @@ CONFIG_haveged=y
 #
 # i2c-tools 
 #
-# CONFIG_i2c-tools is not set
-# CONFIG_i2c-tools-dev is not set
+CONFIG_i2c-tools=y
+CONFIG_i2c-tools-dev=y
 # CONFIG_i2c-tools-dbg is not set
 # CONFIG_i2c-tools-misc is not set
 
@@ -306,7 +306,7 @@ CONFIG_bash=y
 #
 # tar 
 #
-# CONFIG_tar is not set
+CONFIG_tar=y
 # CONFIG_tar-dev is not set
 # CONFIG_tar-rmt is not set
 # CONFIG_tar-dbg is not set
@@ -314,7 +314,7 @@ CONFIG_bash=y
 #
 # tzdata 
 #
-# CONFIG_tzdata is not set
+CONFIG_tzdata=y
 # CONFIG_tzdata-asia is not set
 # CONFIG_tzdata-arctic is not set
 # CONFIG_tzdata-posix is not set
@@ -391,7 +391,7 @@ CONFIG_bash=y
 #
 # xz 
 #
-# CONFIG_xz is not set
+CONFIG_xz=y
 # CONFIG_xz-dev is not set
 # CONFIG_xz-dbg is not set
 # CONFIG_liblzma is not set
@@ -418,21 +418,21 @@ CONFIG_bash=y
 #
 # dhrystone 
 #
-# CONFIG_dhrystone is not set
+CONFIG_dhrystone=y
 # CONFIG_dhrystone-dev is not set
 # CONFIG_dhrystone-dbg is not set
 
 #
 # linpack 
 #
-# CONFIG_linpack is not set
+CONFIG_linpack=y
 # CONFIG_linpack-dbg is not set
 # CONFIG_linpack-dev is not set
 
 #
 # whetstone 
 #
-# CONFIG_whetstone is not set
+CONFIG_whetstone=y
 # CONFIG_whetstone-dev is not set
 # CONFIG_whetstone-dbg is not set
 
@@ -468,7 +468,7 @@ CONFIG_can-utils=y
 #
 # curl 
 #
-# CONFIG_curl is not set
+CONFIG_curl=y
 # CONFIG_curl-dev is not set
 # CONFIG_libcurl is not set
 # CONFIG_curl-dbg is not set
@@ -556,7 +556,7 @@ CONFIG_nfs-utils=y
 #
 # rsync 
 #
-# CONFIG_rsync is not set
+CONFIG_rsync=y
 # CONFIG_rsync-dev is not set
 # CONFIG_rsync-dbg is not set
 
@@ -596,7 +596,7 @@ CONFIG_wget=y
 #
 # parted 
 #
-# CONFIG_parted is not set
+CONFIG_parted=y
 # CONFIG_parted-dbg is not set
 # CONFIG_parted-dev is not set
 
@@ -627,7 +627,7 @@ CONFIG_wget=y
 #
 # bash-completion 
 #
-# CONFIG_bash-completion is not set
+CONFIG_bash-completion=y
 # CONFIG_bash-completion-dev is not set
 # CONFIG_bash-completion-extra is not set
 # CONFIG_bash-completion-dbg is not set
@@ -643,7 +643,7 @@ CONFIG_wget=y
 #
 # file 
 #
-# CONFIG_file is not set
+CONFIG_file=y
 # CONFIG_file-dbg is not set
 # CONFIG_file-dev is not set
 
@@ -664,8 +664,8 @@ CONFIG_wget=y
 #
 # git 
 #
-# CONFIG_git is not set
-# CONFIG_git-bash-completion is not set
+CONFIG_git=y
+CONFIG_git-bash-completion=y
 # CONFIG_gitweb is not set
 # CONFIG_git-perltools is not set
 # CONFIG_git-dev is not set
@@ -674,7 +674,7 @@ CONFIG_wget=y
 #
 # grep 
 #
-# CONFIG_grep is not set
+CONFIG_grep=y
 # CONFIG_grep-dbg is not set
 # CONFIG_grep-dev is not set
 
@@ -717,12 +717,12 @@ CONFIG_wget=y
 #
 # man 
 #
-# CONFIG_man is not set
+CONFIG_man=y
 
 #
 # man-pages 
 #
-# CONFIG_man-pages is not set
+CONFIG_man-pages=y
 # CONFIG_man-pages-dbg is not set
 # CONFIG_man-pages-dev is not set
 
@@ -755,14 +755,14 @@ CONFIG_pciutils=y
 #
 # screen 
 #
-# CONFIG_screen is not set
+CONFIG_screen=y
 # CONFIG_screen-dbg is not set
 # CONFIG_screen-dev is not set
 
 #
 # sed 
 #
-# CONFIG_sed is not set
+CONFIG_sed=y
 # CONFIG_sed-dbg is not set
 # CONFIG_sed-dev is not set
 
@@ -805,14 +805,14 @@ CONFIG_pciutils=y
 #
 # unzip 
 #
-# CONFIG_unzip is not set
+CONFIG_unzip=y
 # CONFIG_unzip-dbg is not set
 # CONFIG_unzip-dev is not set
 
 #
 # vim 
 #
-# CONFIG_vim is not set
+CONFIG_vim=y
 # CONFIG_vim-syntax is not set
 # CONFIG_vim-dev is not set
 # CONFIG_vim-help is not set
@@ -825,7 +825,7 @@ CONFIG_pciutils=y
 #
 # zip 
 #
-# CONFIG_zip is not set
+CONFIG_zip=y
 # CONFIG_zip-dev is not set
 # CONFIG_zip-dbg is not set
 
@@ -836,21 +836,21 @@ CONFIG_pciutils=y
 #
 # autoconf 
 #
-# CONFIG_autoconf is not set
+CONFIG_autoconf=y
 # CONFIG_autoconf-dev is not set
 # CONFIG_autoconf-dbg is not set
 
 #
 # automake 
 #
-# CONFIG_automake is not set
+CONFIG_automake=y
 # CONFIG_automake-dev is not set
 # CONFIG_automake-dbg is not set
 
 #
 # binutils 
 #
-# CONFIG_binutils is not set
+CONFIG_binutils=y
 # CONFIG_binutils-dev is not set
 # CONFIG_binutils-dbg is not set
 
@@ -885,7 +885,7 @@ CONFIG_pciutils=y
 #
 # expect 
 #
-# CONFIG_expect is not set
+CONFIG_expect=y
 # CONFIG_expect-dbg is not set
 # CONFIG_expect-dev is not set
 
@@ -953,7 +953,7 @@ CONFIG_pciutils=y
 #
 # make 
 #
-# CONFIG_make is not set
+CONFIG_make=y
 # CONFIG_make-dbg is not set
 # CONFIG_make-dev is not set
 
@@ -2124,7 +2124,7 @@ CONFIG_run-postinsts=y
 #
 # ca-certificates 
 #
-# CONFIG_ca-certificates is not set
+CONFIG_ca-certificates=y
 # CONFIG_ca-certificates-dev is not set
 # CONFIG_ca-certificates-dbg is not set
 
@@ -2247,10 +2247,10 @@ CONFIG_linux-xlnx-udev-rules=y
 #
 # gdb 
 #
-# CONFIG_gdb is not set
+CONFIG_gdb=y
 # CONFIG_gdb-dbg is not set
 # CONFIG_gdb-dev is not set
-# CONFIG_gdbserver is not set
+CONFIG_gdbserver=y
 
 #
 # glib-2.0 
@@ -2429,7 +2429,7 @@ CONFIG_linux-xlnx-udev-rules=y
 #
 # net-tools 
 #
-# CONFIG_net-tools is not set
+CONFIG_net-tools=y
 # CONFIG_net-tools-dbg is not set
 # CONFIG_net-tools-dev is not set
 
@@ -3290,14 +3290,14 @@ CONFIG_bridge-utils=y
 #
 # netcat 
 #
-# CONFIG_netcat is not set
+CONFIG_netcat=y
 # CONFIG_netcat-dbg is not set
 # CONFIG_netcat-dev is not set
 
 #
 # tcpdump 
 #
-# CONFIG_tcpdump is not set
+CONFIG_tcpdump=y
 # CONFIG_tcpdump-dbg is not set
 # CONFIG_tcpdump-dev is not set
 
@@ -3781,7 +3781,7 @@ CONFIG_packagegroup-petalinux=y
 #
 # packagegroup-petalinux-lmsensors 
 #
-# CONFIG_packagegroup-petalinux-lmsensors is not set
+CONFIG_packagegroup-petalinux-lmsensors=y
 # CONFIG_packagegroup-petalinux-lmsensors-dbg is not set
 # CONFIG_packagegroup-petalinux-lmsensors-dev is not set
 
@@ -3795,7 +3795,7 @@ CONFIG_packagegroup-petalinux=y
 #
 # packagegroup-petalinux-networking-debug
 #
-# CONFIG_packagegroup-petalinux-networking-debug is not set
+CONFIG_packagegroup-petalinux-networking-debug=y
 # CONFIG_packagegroup-petalinux-networking-debug-dbg is not set
 # CONFIG_packagegroup-petalinux-networking-debug-dev is not set
 
