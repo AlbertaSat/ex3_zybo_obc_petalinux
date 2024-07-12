@@ -2,11 +2,28 @@
 
 This project contains the petalinuxz configuration for the Zybo Test OBC.
 
-## Usage
+## Instructions
+
+The following is step-by-step instructions for setting up the required tools for the Zybo Test OBC Petalinux project, building the project, and flashing the SD card.
+
+1. Download and install [Docker](https://docs.docker.com/engine/install/)
+2. Download [Petalinux 2022.2](https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.2-10141622-installer.run) (Requires free AMD account to download) and place it in this folder
+3. Download and install [Balena Etcher v1.18.11](https://github.com/balena-io/etcher/releases/tag/v1.18.11)
+4. Run the docker build command outlined in the [Docker Build](#build-image) section
+5. Run the docker container using the command outlined in the [Docker Run](#run-container) section
+6. In the docker container shell:
+    1. Follow the [Build Petalinux](#build-project) section to build the petalinux project
+    2. Follow the [Create Boot Image](#create-boot-image) section to create the boot image
+    3. (Optional) Follow the [Qemu Emulation](#qemu-emulation) section to emulate the system
+7. Follow the [Flash SD Card](#flash-sd-card) section to flash the SD card
+
+## Documentation
 
 ### Docker
 
 The main usecase for the docker image if for the CI/CD pipeline, however, it can also be used to build the petalinux project locally if you do not want to pollute your system with the petalinux tools and dependencies.
+
+#### Build Image
 
 To build the docker image, download the desired petalinux install and place it in this projects root folder then run the following command:
 
@@ -16,13 +33,17 @@ To build the docker image, download the desired petalinux install and place it i
 docker build -t zybo_obc_petalinux .
 ```
 
+#### Run Container
+
 To use the docker image, you will need to bind mount the project directory to the `/project` directory in the container. The following command will start the container and open a shell in the project directory:
 
 ```bash
 docker run -it --rm -v $(pwd):/home/petalinux/project zybo_obc_petalinux
 ```
 
-### Build Petalinux
+### Petalinux
+
+#### Build Project
 
 Since this project should already be preconfigured and include an exported Vivado bitstream, the following commands should be sufficient to build the project:
 
@@ -38,7 +59,7 @@ petalinux-config --silentconfig
 petalinux-build
 ```
 
-### Update bitstream (Untested)
+#### Update bitstream (Untested)
 
 If the vivado project gets updated, the bitstream should be exported and configured in the petalinux project.
 
@@ -46,7 +67,7 @@ If the vivado project gets updated, the bitstream should be exported and configu
 petalinux-config --get-hw-description="<path-to-xsa-file>"
 ```
 
-### Create Boot Image
+#### Create Boot Image
 
 After building the petalinux project, the boot image can be created using the following command:
 
@@ -60,7 +81,7 @@ petalinux-package --wic
 
 The wic image can then be used to either create a bootable SD card or emulate the system using QEMU.
 
-### Qemu Emulation
+#### Qemu Emulation
 
 Simply run the following command to emulate the system using QEMU after you have created the image:
 
@@ -73,7 +94,7 @@ To quit QEMU `Ctrl + A` then `x`.
 
 ### Flash SD Card
 
-### Method 1: Full image using Balena Etcher (Recommended)
+#### Method 1: Full image using Balena Etcher (Recommended)
 
 One of the most popular tools for flashing SD cards is [Balena Etcher](https://www.balena.io/etcher/). It is easy to use, multi-platform, post-flashing validation, and can make clones of SD cards.
 
@@ -140,8 +161,7 @@ Then use the following command to copy the root fs tarball onto the root partiti
 sudo dd if=images/linux/rootfs.tar.gz of=/dev/sdX2 conv=fsync bs=4M status=progress oflag=direct
 ```
 
-
-## Zybo Setup
+### Zybo Setup
 
 Ensure the Right side jumper is set to SD, this will allow the Zybo to boot from the SD card. Also ensure that the left jumper by the power switch is set to WALL so that the zybo is powered by the wall adapter and not the USB.
 
@@ -161,8 +181,7 @@ dmesg | grep ttyUSB
 screen /dev/ttyUSBX 115200
 ```
 
-
-## CICD (WIP)
+### CICD (WIP)
 
 The project includes a GitHub Actions workflow that will build the petalinux project and create a wic image. The workflow can be triggered by creating a new tag with the format `v*.*.*`.
 
