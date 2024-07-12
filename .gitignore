@@ -11,3 +11,4 @@ pre-built/linux/
 /components/plnx_workspace
 /components/yocto
 petalinux*.run
+.DS_Store

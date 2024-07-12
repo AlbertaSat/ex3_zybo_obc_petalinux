@@ -1,6 +1,6 @@
 # Zybo Test OBC Petalinux Project
 
-This project contains the petalinuxz configuration for the Zybo Test OBC.
+This project contains the petalinux configuration for the Zybo Test OBC. The Vivado project and subsequent bitstream and hardware documentation can be found in the [ex3_zybo_obc_config](https://github.com/AlbertaSat/ex3_zybo_obc_config) repository.
 
 ## Instructions
 

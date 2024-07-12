@@ -1,4 +1,5 @@
 .git
+.DS_Store
 */*/config.old
 */*/rootfs_config.old
 build/
