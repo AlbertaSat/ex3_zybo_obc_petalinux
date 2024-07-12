@@ -12,9 +12,10 @@ The following is step-by-step instructions for setting up the required tools for
 4. Run the docker build command outlined in the [Docker Build](#build-image) section
 5. Run the docker container using the command outlined in the [Docker Run](#run-container) section
 6. In the docker container shell:
-    1. Follow the [Build Petalinux](#build-project) section to build the petalinux project
-    2. Follow the [Create Boot Image](#create-boot-image) section to create the boot image
-    3. (Optional) Follow the [Qemu Emulation](#qemu-emulation) section to emulate the system
+    1. Change your working directory to the project directory using: `cd /home/petalinux/project`
+    2. Follow the [Build Petalinux](#build-project) section to build the petalinux project
+    3. Follow the [Create Boot Image](#create-boot-image) section to create the boot image
+    4. (Optional) Follow the [Qemu Emulation](#qemu-emulation) section to emulate the system
 7. Follow the [Flash SD Card](#flash-sd-card) section to flash the SD card
 
 ## Documentation
@@ -59,7 +60,7 @@ petalinux-config --silentconfig
 petalinux-build
 ```
 
-#### Update bitstream (Untested)
+#### Update bitstream
 
 If the vivado project gets updated, the bitstream should be exported and configured in the petalinux project.
 
