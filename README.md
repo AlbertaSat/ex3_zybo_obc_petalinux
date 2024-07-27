@@ -44,6 +44,14 @@ docker run -it --rm -v $(pwd):/home/petalinux/project zybo_obc_petalinux
 
 ### Petalinux
 
+Most petalinux commands should either be ran from the project directory (`/home/petalinux/project` in the docker container, you can change your working directory to it using `cd /home/petalinux/project`) or specifying the project directory with the `-p`/`--project` argument.
+
+Example:
+`petalinux-config --silentconfig -p /home/petalinux/project`
+`petalinux-build --project /home/petalinux/project`
+
+Note: `petalinux-boot` does not have the `-p` argument so you must ensure your working directory is the petalinux project.
+
 #### Build Project
 
 Since this project should already be preconfigured and include an exported Vivado bitstream, the following commands should be sufficient to build the project:
@@ -84,7 +92,7 @@ The wic image can then be used to either create a bootable SD card or emulate th
 
 #### Qemu Emulation
 
-Simply run the following command to emulate the system using QEMU after you have created the image:
+First ensure your working directory is the petalinux project (use `cd /home/petalinux/project`) then simply run the following command to emulate the system using QEMU after you have created the image:
 
 ```bash
 # Run QEMU
