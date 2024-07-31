@@ -214,6 +214,8 @@ petalinux-config -c u-boot
 petalinux-config -c kernel
 # Set the following options:
 # Library routines > Default contiguous memory area size > 256
+# Device Drivers > I2C Support > I2C hardware Bus Support > Xilinx I2C Controller
+# Device Drivers > Character Devices > Serial drivers > Xilinix uartlite serial port support
 
 petalinux-config -c rootfs
 # Set the following options:
