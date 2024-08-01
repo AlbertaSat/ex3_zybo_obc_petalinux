@@ -170,6 +170,16 @@ Then use the following command to copy the root fs tarball onto the root partiti
 sudo dd if=images/linux/rootfs.tar.gz of=/dev/sdX2 conv=fsync bs=4M status=progress oflag=direct
 ```
 
+### Yocto
+
+To get acces to the bitbake commands, run the following:
+
+```bash
+source components/yocto/environment-setup-cortexa9t2hf-neon-xilinx-linux-gnueabi
+source components/yocto/layers/core/oe-init-build-env 
+```
+
+
 ### Zybo Setup
 
 Ensure the Right side jumper is set to SD, this will allow the Zybo to boot from the SD card. Also ensure that the left jumper by the power switch is set to WALL so that the zybo is powered by the wall adapter and not the USB.
@@ -219,6 +229,7 @@ petalinux-config -c kernel
 
 petalinux-config -c rootfs
 # Set the following options:
+# user packages > nano
 # Filesystem packages -> admin -> sudo
 # Filesystem packages -> base -> busybox -> busybox
 # Filesystem packages -> base -> e2fsprogs -> e2fsprogs

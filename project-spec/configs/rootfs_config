@@ -3893,6 +3893,7 @@ CONFIG_Init-manager-sysvinit=y
 # user packages 
 #
 # CONFIG_gpio-demo is not set
+CONFIG_nano=y
 # CONFIG_peekpoke is not set
 
 #
