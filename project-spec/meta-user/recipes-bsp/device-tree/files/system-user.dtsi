@@ -1,3 +1,25 @@
 /include/ "system-conf.dtsi"
 / {
 };
+
+&spi1 {
+    spidev@0 {
+        compatible = "linux,spidev";
+        spi-max-frequency = <100000>;
+        reg = <0>;
+    };
+};
+&axi_quad_spi_0 {
+    spidev@0 {
+        compatible = "linux,spidev";
+        spi-max-frequency = <100000>;
+        reg = <0>;
+    };
+};
+&axi_quad_spi_1 {
+    spidev@0 {
+        compatible = "linux,spidev";
+        spi-max-frequency = <100000>;
+        reg = <0>;
+    };
+};

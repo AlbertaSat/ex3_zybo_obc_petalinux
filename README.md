@@ -101,6 +101,22 @@ petalinux-boot --qemu --kernel
 
 To quit QEMU `Ctrl + A` then `x`.
 
+#### Device Tree
+
+##### Modify Device Tree
+
+##### View Final Tree
+
+To view the final device tree after building the image, you can use the following command:
+
+```bash
+# From the project directory in a linux enviornment 
+# with the device tree compiler installed (basically just use the docker container)
+dtc images/linux/system.dtb -o dts
+```
+
+This will output a text file named `dts` that can be opened using any text editor.
+
 ### Flash SD Card
 
 #### Method 1: Full image using Balena Etcher (Recommended)
@@ -179,8 +195,9 @@ source components/yocto/environment-setup-cortexa9t2hf-neon-xilinx-linux-gnueabi
 source components/yocto/layers/core/oe-init-build-env 
 ```
 
+### Zybo
 
-### Zybo Setup
+#### Setup
 
 Ensure the Right side jumper is set to SD, this will allow the Zybo to boot from the SD card. Also ensure that the left jumper by the power switch is set to WALL so that the zybo is powered by the wall adapter and not the USB.
 
@@ -199,6 +216,8 @@ dmesg | grep ttyUSB
 # Then just run
 screen /dev/ttyUSBX 115200
 ```
+
+#### Testing interfaces
 
 ### CICD (WIP)
 

@@ -9,6 +9,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
   bc \
   bison \
   build-essential \
+  device-tree-compiler \
   expect \
   gawk \
   gcc-multilib \
