@@ -4,3 +4,8 @@
 CONFIG_gpio-demo
 CONFIG_peekpoke
 CONFIG_nano
+CONFIG_spitools
+CONFIG_spidev-test
+CONFIG_memtester
+CONFIG_smem
+CONFIG_stressapptest

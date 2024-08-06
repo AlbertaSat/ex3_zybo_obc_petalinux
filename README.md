@@ -229,7 +229,12 @@ petalinux-config -c kernel
 
 petalinux-config -c rootfs
 # Set the following options:
-# user packages > nano
+# User packages > spitools
+# User packages > spidev-test
+# User packages > memtester
+# User packages > smem
+# User packages > stressapptest
+# User packages > nano
 # Filesystem packages -> admin -> sudo
 # Filesystem packages -> base -> busybox -> busybox
 # Filesystem packages -> base -> e2fsprogs -> e2fsprogs
@@ -268,7 +273,11 @@ petalinux-config -c rootfs
 # Filesystem packages -> devel -> make -> make
 # Filesystem packages -> misc -> ca-certificates -> ca-certificates
 # Filesystem packages -> misc -> gdb -> gdb
-# Filesystem packages -> misc -> gdb -> gdbserver
+# Filesystem packages ->CONFIG_
+CONFIG_
+CONFIG_
+CONFIG_
+CONFIG_ misc -> gdb -> gdbserver
 # Filesystem packages -> misc -> net-tools -> net-tools
 # Filesystem packages -> misc -> packagegroup-core-buildessential -> packagegroup-core-buildessential
 # Filesystem packages -> misc -> packagegroup-core-tools-debug -> packagegroup-core-tools-debugl
