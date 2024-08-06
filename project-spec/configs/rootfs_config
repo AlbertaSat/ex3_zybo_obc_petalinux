@@ -3893,8 +3893,13 @@ CONFIG_Init-manager-sysvinit=y
 # user packages 
 #
 # CONFIG_gpio-demo is not set
+CONFIG_memtester=y
 CONFIG_nano=y
 # CONFIG_peekpoke is not set
+CONFIG_smem=y
+CONFIG_spidev-test=y
+CONFIG_spitools=y
+CONFIG_stressapptest=y
 
 #
 # PetaLinux RootFS Settings
