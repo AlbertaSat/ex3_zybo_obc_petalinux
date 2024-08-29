@@ -2,23 +2,25 @@
 / {
 };
 
+// https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree
+// Easiest method is to use "rohm,dh2228fv"
 &spi1 {
     spidev@0 {
-        compatible = "linux,spidev";
+        compatible = "rohm,dh2228fv";
         spi-max-frequency = <100000>;
         reg = <0>;
     };
 };
 &axi_quad_spi_0 {
     spidev@0 {
-        compatible = "linux,spidev";
+        compatible = "rohm,dh2228fv";
         spi-max-frequency = <100000>;
         reg = <0>;
     };
 };
 &axi_quad_spi_1 {
     spidev@0 {
-        compatible = "linux,spidev";
+        compatible = "rohm,dh2228fv";
         spi-max-frequency = <100000>;
         reg = <0>;
     };
