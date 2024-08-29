@@ -292,11 +292,7 @@ petalinux-config -c rootfs
 # Filesystem packages -> devel -> make -> make
 # Filesystem packages -> misc -> ca-certificates -> ca-certificates
 # Filesystem packages -> misc -> gdb -> gdb
-# Filesystem packages ->CONFIG_
-CONFIG_
-CONFIG_
-CONFIG_
-CONFIG_ misc -> gdb -> gdbserver
+# Filesystem packages -> misc -> gdb -> gdbserver
 # Filesystem packages -> misc -> net-tools -> net-tools
 # Filesystem packages -> misc -> packagegroup-core-buildessential -> packagegroup-core-buildessential
 # Filesystem packages -> misc -> packagegroup-core-tools-debug -> packagegroup-core-tools-debugl

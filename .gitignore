@@ -13,3 +13,4 @@ pre-built/linux/
 /components/yocto
 petalinux*.run
 .DS_Store
+.vscode-ctags
