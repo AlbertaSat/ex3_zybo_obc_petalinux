@@ -3905,6 +3905,6 @@ CONFIG_stressapptest=y
 # PetaLinux RootFS Settings
 #
 CONFIG_ADD_EXTRA_USERS="root:root;petalinux::passwd-expire;"
-CONFIG_CREATE_NEW_GROUPS="aie;"
-CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie;"
+CONFIG_CREATE_NEW_GROUPS="aie;gpio;i2c;spi;"
+CONFIG_ADD_USERS_TO_GROUPS="petalinux:audio,video,aie,dialout,spi,i2c,gpio;"
 CONFIG_ADD_USERS_TO_SUDOERS="petalinux"
