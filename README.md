@@ -219,13 +219,68 @@ screen /dev/ttyUSBX 115200
 
 #### Testing interfaces
 
+##### UART
+
+To test a SPI interface, you can connect the interface in a loopback (i.e. connect TX to RX) then open up to terminal sessions to the zybo (either two ssh sessions or one ssh and one serial connection).
+
+In the first terminal, run the command `cat /dev/tty<port>`.
+
+In the second terminal, run the command `echo "This is a test!" > /dev/ttyUL1`.
+
+If it is working, the message should be recieved in the first terminal.
+
+##### SPI
+
+To test a SPI interface, you can connect the interface in a loopback (i.e. connect MISO to MOSI) then run the following command:
+
+```bash
+spidev_test -v -D /dev/spidev<port>.0
+```
+
+When its working, it should output the following:
+
+```bash
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 kHz)
+TX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  |......@.........................|
+RX | FF FF FF FF FF FF 40 00 00 00 00 95 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0 0D  |......@.........................|
+```
+
+Note how the TX and RX messages are the same, this means the interface is working correctly. If they are not the same, something went wrong somewhere.
+
+##### CAN (WIP)
+
+Before CAN cna be used, the following must be done
+
+1. Set the can bit-timing: `sudo ip link set can0 type can bitrate 200000`
+    - Expected output: `xilinx_can e0008000.can can0: bitrate error 0.0%`
+2. Enable can network: `sudo ip link set can0 up`
+    - Expected output: `IPv6: ADDRCONF(NETDEV_CHANGE): can0: link becomes ready`
+
+#### Copy files to Zybo
+
+Easiest way to copy a folder from your computer to a Zybo connected to ethernet would be the `scp` command as follows:
+
+```bash
+# Copy to home directory on zybo
+scp -r <path_to_folder> petalinux@142.244.38.28:/home/petalinux/.
+```
+
+You can also copy files from the zybo using:
+
+```bash
+# Copy from Zybo to your home directory
+scp -r petalinux@142.244.38.28:<path_to_folder> ~/.
+```
+
 ### CICD (WIP)
 
 The project includes a GitHub Actions workflow that will build the petalinux project and create a wic image. The workflow can be triggered by creating a new tag with the format `v*.*.*`.
 
 As petalinux is a somewhat under export control restrictions, the workflow is set to run on a self-hosted runner using a locally built verion of the included Dockerfile. All built zybo images will also be stored on the runners machine.
 
-To ensure that the runner is secure, a repository should be private. If the repository is public, the setting `Actions -> General -> Fork pull request workflows from outside collaborators` must be set to `Require approval for all outside collaborators` so that the runner is not exposed to malicious code by unknown collaborators through PR'sc.
+To ensuretestspi that the runner is secure, a repository should be private. If the repository is public, the setting `Actions -> General -> Fork pull request workflows from outside collaborators` must be set to `Require approval for all outside collaborators` so that the runner is not exposed to malicious code by unknown collaborators through PR'sc.
 
 ## Notes
 
