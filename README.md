@@ -6,7 +6,7 @@ This project contains the petalinux configuration for the Zybo Test OBC. The Viv
 
 The following is step-by-step instructions for setting up the required tools for the Zybo Test OBC Petalinux project, building the project, and flashing the SD card.
 
-**NOTE:** *If your are using MacOS see [Mac OS Troubleshooting](#mac-os).*
+**NOTE:** *If your are using MacOS or Windows see [Mac OS and Windows Troubleshooting](#mac-os-and-windows).*
 
 1. Download and install [Docker](https://docs.docker.com/engine/install/)
 2. Download [Petalinux 2022.2](https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.2-10141622-installer.run) (Requires free AMD account to download) and place it in this folder
@@ -41,11 +41,7 @@ docker build -t zybo_obc_petalinux .
 To use the docker image, you will need to bind mount the project directory to the `/project` directory in the container. The following command will start the container and open a shell in the project directory:
 
 ```bash
-# On Linux
 docker run -it --rm -v $(pwd):/home/petalinux/project zybo_obc_petalinux
-
-# On Windows
-docker run -it --rm -v ${PWD}:/home/petalinux/project zybo_obc_petalinux
 ```
 
 ### Petalinux
@@ -290,9 +286,11 @@ To ensuretestspi that the runner is secure, a repository should be private. If t
 
 ## Troubleshooting
 
-### Mac OS
+### Mac OS and Windows
 
-Currently there are issues during build on Mac OS when using the docker container, it is recommeneded to use an Ubuntu virtual machine using [UTM](https://mac.getutm.app/)
+Currently there are issues during build on Mac OS and issues creating WIC images on Windows when using the docker container from the native hosts. To get around this a VM needs to be used. Please see [this guide](https://docs.qualcomm.com/bundle/publicresource/topics/80-70015-41/getting-started.html) for setting up an Ubuntu VM on Mac OS and Windows.
+
+For windows, see [this manual](https://docs.docker.com/desktop/features/wsl/#enabling-docker-support-in-wsl-2-distributions) on how to enable access to docker from WSL and [this guide](https://joe.blog.freemansoft.com/2022/01/setting-your-memory-and-swap-for-wsl2.html) on how to increase available RAM and virtual CPU's WSL has access to.
 
 ## Notes
 
