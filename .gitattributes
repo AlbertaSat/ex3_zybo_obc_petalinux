@@ -1,1 +1,5 @@
 *.sh   text eol=lf
+project-spec/**/*   text eol=lf
+.petalinux/*   text eol=lf
+*.xsa   binary
+*.bit   binary
