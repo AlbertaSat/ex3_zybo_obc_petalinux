@@ -355,6 +355,8 @@ petalinux-config -c rootfs
 # Filesystem packages -> devel -> binutils -> binutils
 # Filesystem packages -> devel -> expect -> expect
 # Filesystem packages -> devel -> make -> make
+# Filesystem packages -> libs -> libgpiod -> libgpiod
+# Filesystem packages -> libs -> libgpiod -> libgpiod-dev
 # Filesystem packages -> misc -> ca-certificates -> ca-certificates
 # Filesystem packages -> misc -> gdb -> gdb
 # Filesystem packages -> misc -> gdb -> gdbserver
