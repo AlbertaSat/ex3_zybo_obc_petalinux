@@ -6,6 +6,8 @@ This project contains the petalinux configuration for the Zybo Test OBC. The Viv
 
 The following is step-by-step instructions for setting up the required tools for the Zybo Test OBC Petalinux project, building the project, and flashing the SD card.
 
+**NOTE:** *If your are using MacOS see [Mac OS Troubleshooting](#mac-os).*
+
 1. Download and install [Docker](https://docs.docker.com/engine/install/)
 2. Download [Petalinux 2022.2](https://www.xilinx.com/member/forms/download/xef.html?filename=petalinux-v2022.2-10141622-installer.run) (Requires free AMD account to download) and place it in this folder
 3. Download and install [Balena Etcher v1.18.11](https://github.com/balena-io/etcher/releases/tag/v1.18.11)
@@ -39,7 +41,11 @@ docker build -t zybo_obc_petalinux .
 To use the docker image, you will need to bind mount the project directory to the `/project` directory in the container. The following command will start the container and open a shell in the project directory:
 
 ```bash
+# On Linux
 docker run -it --rm -v $(pwd):/home/petalinux/project zybo_obc_petalinux
+
+# On Windows
+docker run -it --rm -v ${PWD}:/home/petalinux/project zybo_obc_petalinux
 ```
 
 ### Petalinux
@@ -281,6 +287,12 @@ The project includes a GitHub Actions workflow that will build the petalinux pro
 As petalinux is a somewhat under export control restrictions, the workflow is set to run on a self-hosted runner using a locally built verion of the included Dockerfile. All built zybo images will also be stored on the runners machine.
 
 To ensuretestspi that the runner is secure, a repository should be private. If the repository is public, the setting `Actions -> General -> Fork pull request workflows from outside collaborators` must be set to `Require approval for all outside collaborators` so that the runner is not exposed to malicious code by unknown collaborators through PR'sc.
+
+## Troubleshooting
+
+### Mac OS
+
+Currently there are issues during build on Mac OS when using the docker container, it is recommeneded to use an Ubuntu virtual machine using [UTM](https://mac.getutm.app/)
 
 ## Notes
 
