@@ -72,8 +72,8 @@ RUN rm -f /home/petalinux/${PETA_RUN_FILE}
 RUN echo "root:petalinux" | chpasswd
 
 USER petalinux
-ENV HOME /home/petalinux
-ENV LANG en_US.UTF-8
+ENV HOME=/home/petalinux
+ENV LANG=en_US.UTF-8
 
 USER root
 RUN echo "/usr/sbin/in.tftpd --foreground --listen --address [::]:69 --secure /tftpboot" >> /etc/profile && \
