@@ -365,6 +365,7 @@ petalinux-config -c rootfs
 # Filesystem packages -> misc -> packagegroup-core-tools-debug -> packagegroup-core-tools-debugl
 # Filesystem packages -> net -> netcat -> netcat
 # Filesystem packages -> net -> tcpdump -> tcpdump
+# Image Features -> Init-manger -> systemd
 # Petalinux Package Groups -> packagegroup-petalinux -> packagegroup-petalinux
 # Petalinux Package Groups -> packagegroup-petalinux-networking-debug -> packagegroup-petalinux-networking-debug
 # Petalinux Package Groups -> packagegroup-petalinux-networking-stack -> packagegroup-petalinux-networking-stack
