@@ -14,3 +14,5 @@ pre-built/linux/
 petalinux*.run
 .DS_Store
 .vscode-ctags
+/*.xsa
+dts

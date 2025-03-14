@@ -319,6 +319,7 @@ petalinux-config -c rootfs
 # User packages > smem
 # User packages > stressapptest
 # User packages > nano
+# User packages > gpsd
 # Filesystem packages -> admin -> sudo
 # Filesystem packages -> base -> busybox -> busybox
 # Filesystem packages -> base -> e2fsprogs -> e2fsprogs
@@ -337,6 +338,8 @@ petalinux-config -c rootfs
 # Filesystem packages -> console -> network -> wget -> wget
 # Filesystem packages -> console -> network -> curl -> curl
 # Filesystem packages -> console -> network -> rsync -> rsync
+# Filesystem packages -> console -> network -> ppp -> ppp
+# Filesystem packages -> console -> network -> ppp -> ppp-tools
 # Filesystem packages -> console -> tools -> parted -> parted
 # Filesystem packages -> console -> utils -> bash-completion -> bash-completion
 # Filesystem packages -> console -> utils -> file -> file
