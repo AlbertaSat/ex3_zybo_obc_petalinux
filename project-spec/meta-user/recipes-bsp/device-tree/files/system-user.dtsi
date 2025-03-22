@@ -11,3 +11,8 @@
         reg = <0>;
     };
 };
+
+// IRIS SPI needs the userspace IO drivers
+&iris_spi {
+    compatible = "generic-uio";
+};
