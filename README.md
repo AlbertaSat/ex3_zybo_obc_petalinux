@@ -310,6 +310,11 @@ petalinux-config -c kernel
 # Library routines > Default contiguous memory area size > 256
 # Device Drivers > I2C Support > I2C hardware Bus Support > Xilinx I2C Controller
 # Device Drivers > Character Devices > Serial drivers > Xilinix uartlite serial port support
+# Device Drivers > Network Device Support > PPP support
+# Device Drivers > Network Device Support > PPP Filtering
+# Device Drivers > Network Device Support > PPP multilink support
+# Device Drivers > Network Device Support > PPP Deflate compression
+# Device Drivers > Network Device Support > PPP support for async serial ports
 
 petalinux-config -c rootfs
 # Set the following options:
