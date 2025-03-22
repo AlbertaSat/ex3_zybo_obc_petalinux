@@ -80,6 +80,8 @@ RUN echo "/usr/sbin/in.tftpd --foreground --listen --address [::]:69 --secure /t
   echo ". /opt/Xilinx/petalinux/settings.sh" >> /etc/profile && \
   echo ". /etc/profile" >> /root/.profile
 
+RUN apt-get update && apt-get install tmux -y
+
 EXPOSE 69/udp
 
 USER petalinux
