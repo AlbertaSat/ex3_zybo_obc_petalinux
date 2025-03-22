@@ -1,6 +1,6 @@
 PETALINUX_VER=2022.2
 VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/petalinux/project/zybo_obc_v0.3.0.xsa
+HARDWARE_PATH=/home/petalinux/project/zybo_obc_v0.3.0-iriscommstest.xsa
 HDF_EXT=xsa
 HARDWARE_CHECKSUM=4eeb81d925de6441e5fc2e8ace7ad2ce
 YOCTO_SDK=85e32bd84b2647e640a2e565ef06077a
