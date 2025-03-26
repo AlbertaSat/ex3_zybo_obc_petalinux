@@ -16,3 +16,25 @@
 &iris_spi {
     compatible = "generic-uio";
 };
+&dfgm_uart {
+    symlink = "dfgm_uart";
+};
+&ppp_uart_0 {
+    symlink = "ppp_uart_0";
+};
+&ppp_uart_1 {
+    symlink = "ppp_uart_1";
+};
+&ppp_uart_2 {
+    symlink = "ppp_uart_2";
+};
+&ppp_uart_3 {
+    symlink = "ppp_uart_3";
+};
+&sband_iic {
+    symlink = "sband_iic";
+};
+&sband_spi {
+    symlink = "sband_spi";
+};
+
