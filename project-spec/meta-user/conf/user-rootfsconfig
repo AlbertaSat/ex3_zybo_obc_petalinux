@@ -9,3 +9,4 @@ CONFIG_spidev-test
 CONFIG_memtester
 CONFIG_smem
 CONFIG_stressapptest
+CONFIG_gpsd
