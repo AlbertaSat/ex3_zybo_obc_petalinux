@@ -1,0 +1,1 @@
+ATTR{device/of_node/symlink}!="", ENV{DEVNAME}!="", SYMLINK+="%s{device/of_node/symlink}"
