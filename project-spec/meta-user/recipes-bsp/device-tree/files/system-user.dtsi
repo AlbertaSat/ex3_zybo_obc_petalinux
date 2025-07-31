@@ -1,4 +1,5 @@
 /include/ "system-conf.dtsi"
+
 / {
 };
 
@@ -38,5 +39,11 @@
     usb2512b@2c {
         compatible = "microchip,usb2512b";
         reg = <0x2c>;
+        reset-gpios = <&gpio0 72 1>;
+        string-support;
+		manufacturer = "AlbertaSat";
+		product = "Daedalus Hub";
+		serial = "DEADBEEF";
+        swap-dx-lanes = <1 2>;
     };
 };
