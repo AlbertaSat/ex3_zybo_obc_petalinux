@@ -35,6 +35,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
   xxd \
   xz-utils \
   zlib1g-dev \
+  tmux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
