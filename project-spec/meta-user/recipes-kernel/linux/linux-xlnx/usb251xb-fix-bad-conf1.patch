@@ -1,0 +1,13 @@
+diff --git a/drivers/usb/misc/usb251xb.c b/drivers/usb/misc/usb251xb.c
+index 507deef1f..d099376aa 100644
+--- a/drivers/usb/misc/usb251xb.c
++++ b/drivers/usb/misc/usb251xb.c
+@@ -33,7 +33,7 @@
+ #define USB251XB_DEF_DEVICE_ID		0x0BB3
+ 
+ #define USB251XB_ADDR_CONFIG_DATA_1	0x06
+-#define USB251XB_DEF_CONFIG_DATA_1	0x9B
++#define USB251XB_DEF_CONFIG_DATA_1	0x93
+ #define USB251XB_ADDR_CONFIG_DATA_2	0x07
+ #define USB251XB_DEF_CONFIG_DATA_2	0x20
+ #define USB251XB_ADDR_CONFIG_DATA_3	0x08

@@ -44,6 +44,5 @@
 		manufacturer = "AlbertaSat";
 		product = "Daedalus Hub";
 		serial = "DEADBEEF";
-        swap-dx-lanes = <1 2>;
     };
 };
