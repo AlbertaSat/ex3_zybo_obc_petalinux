@@ -292,6 +292,78 @@ Currently there are issues during build on Mac OS and issues creating WIC images
 
 For windows, see [this manual](https://docs.docker.com/desktop/features/wsl/#enabling-docker-support-in-wsl-2-distributions) on how to enable access to docker from WSL and [this guide](https://joe.blog.freemansoft.com/2022/01/setting-your-memory-and-swap-for-wsl2.html) on how to increase available RAM and virtual CPU's WSL has access to.
 
+### Optimizing VHDX Files
+
+As multiple biulds are done, the ext4.vhdx file under the linux file system can grow to unmanigable proportions eating into significant portions of storage space. The following error may also appear, "WARNING: You are running bitbake under WSLv2, this works properly but you should optimize your VHDX file eventually to avoid running out of storage space" when running biulds. The following steps should be done in order, to remedy this.
+
+1. Open powershell in adminstrator mode (and accept the "allow this to make changes prompt")
+2. Run the following command to locate your vhdx file
+
+```bash
+Get-AppxPackage -Name "*Ubuntu*" | Select PackageFamilyName
+```
+
+This should return the following results,
+
+```bash 
+PackageFamilyName
+-----------------
+CanonicalGroupLimited.Ubuntu_79abcdefgh
+```
+
+Next the following command will find the file path your vhdx file, replace myuser with your name on your file system and canonicalgrouplimited.Ubuntu_79abcdefgh with the results you got from the previous step.
+
+```bash
+ls C:\Users\myuser\AppData\Local\Packages\CanonicalGroupLimited_79abcdefgh\LocalState\
+```
+
+This will produce results similar to the following,
+
+```bash
+Mode                 LastWriteTime         Length Name
+-a----         3/14/2020   9:52 PM    57418973184 ext4.vhdx
+```
+
+From this the file path to your vhdx file is the following (with the relevant information changed with your own),
+C:\Users\myuser\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79abcdefgh\LocalState\ext4.vhdx
+
+3. Optimizing your vhdx file using diskpart
+
+First to ensure that WSL is not running, close and instance of it that are open and run the following command,
+
+```bash
+wsl --shutdown
+```
+
+Next you must enter diskpart (diskpart is a command interpreter that helps to manage your computers storage drives), to do so, run the follwing command,
+
+```bash
+diskpart
+```
+
+this will change your prompt from "C:\WINDOWS\system32>" to "diskpart".
+
+Next run the following commands in order (one at a time), to access the file, compact it, and then exit diskpart.
+
+```bash
+DISKPART> select vdisk file="<path_to_VHDX_file>"
+DISKPART> attach vdisk readonly
+DISKPART> compact vdisk
+DISKPART> detach
+DISKPART> exit
+```
+
+4. Restarting WSL
+
+Since WSL was shut down previously you must manually restart it in windows powershel as an administrator, this can be done with the following command,
+
+```bash
+wsl
+```
+
+NOTE: Sometime this command will fail if other instances of WSL are running, in which case a restart of your computer is required. 
+
+
 ## Notes
 
 ### Base Configuration
