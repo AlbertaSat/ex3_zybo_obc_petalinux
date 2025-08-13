@@ -9,8 +9,6 @@
 	// };
 	
 	aliases {
-		serial0 = &uart0;
-		serial1 = &uart1;
 		uhf_rs485_uart = &uart0;
 		dfgm_uart = &axi_uartlite_dfgm;
 		gps_uart = &axi_uartlite_gps;
@@ -24,7 +22,7 @@
 
 // https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree
 // Easiest method is to use "rohm,dh2228fv"
-&sband_spi {
+&spi0 {
     spidev@0 {
         symlink = "sband_spi";
         compatible = "rohm,dh2228fv";
@@ -33,27 +31,27 @@
     };
 };
 
-&sband_i2c {
+&axi_iic_sband {
     symlink = "sband_i2c";
 };
 
-&dfgm_uart {
+&axi_uartlite_dfgm {
     symlink = "dfgm_uart";
 };
 
-&gps_uart {
+&axi_uartlite_gps {
     symlink = "gps_uart";
 };
 
-&uhf_rs485_uart {
+&uart0 {
     symlink = "uhf_rs485_uart";
 };
 
-&heracles_uart {
+&axi_uartlite_heracles {
     symlink = "heracles_uart";
 };
 
-&db_i2c {
+&i2c1 {
     symlink = "db_i2c";
     usb2512b@2c {
         compatible = "microchip,usb2512b";
