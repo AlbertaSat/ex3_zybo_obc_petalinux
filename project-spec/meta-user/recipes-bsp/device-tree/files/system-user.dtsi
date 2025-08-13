@@ -1,11 +1,30 @@
 /include/ "system-conf.dtsi"
 
 / {
+	model = "AlbertaSat Zybo OBC";
+
+	// chosen {
+	// 	bootargs = "console=heracles_uart,115200n8 earlycon root=/dev/mmcblk0p2 rw rootwait";
+	// 	stdout-path = "serial0:115200n8";
+	// };
+	
+	aliases {
+		serial0 = &uart0;
+		serial1 = &uart1;
+		uhf_rs485_uart = &uart0;
+		dfgm_uart = &axi_uartlite_dfgm;
+		gps_uart = &axi_uartlite_gps;
+		heracles_uart = &axi_uartlite_heracles;
+		// uhf_uart = &axi_uartlite_uhf;
+		sband_i2c = &axi_iic_sband;
+		db_i2c = &i2c1;
+		sband_spi = &spi0;
+	};
 };
 
 // https://stackoverflow.com/questions/53634892/linux-spidev-why-it-shouldnt-be-directly-in-devicetree
 // Easiest method is to use "rohm,dh2228fv"
-&spi0 {
+&sband_spi {
     spidev@0 {
         symlink = "sband_spi";
         compatible = "rohm,dh2228fv";
@@ -14,27 +33,27 @@
     };
 };
 
-&axi_iic_SBAND {
+&sband_i2c {
     symlink = "sband_i2c";
 };
 
-&axi_uartlite_dfgm {
+&dfgm_uart {
     symlink = "dfgm_uart";
 };
 
-&axi_uartlite_gps {
+&gps_uart {
     symlink = "gps_uart";
 };
 
-&uart0 {
-    symlink = "uhf_uart";
+&uhf_rs485_uart {
+    symlink = "uhf_rs485_uart";
 };
 
-&uart1 {
+&heracles_uart {
     symlink = "heracles_uart";
 };
 
-&i2c1 {
+&db_i2c {
     symlink = "db_i2c";
     usb2512b@2c {
         compatible = "microchip,usb2512b";
