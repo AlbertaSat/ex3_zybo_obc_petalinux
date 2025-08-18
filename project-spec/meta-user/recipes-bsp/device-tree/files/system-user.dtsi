@@ -37,10 +37,12 @@
 
 &axi_uartlite_dfgm {
     symlink = "dfgm_uart";
+    port-number = <0x03>;
 };
 
 &axi_uartlite_gps {
     symlink = "gps_uart";
+    port-number = <0x02>;
 };
 
 &uart0 {
