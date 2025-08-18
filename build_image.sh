@@ -1,19 +1,36 @@
+#!/bin/bash -e
 # Script automate the petalinux image build process
+# Default project location
+PROJECT_LOCATION="/home/petalinux/project"
+SKIP_BUILD=false
 
-# Add optional project location argument
-PROJECT_LOCATION=${1:-"/home/petalinux/project"}
+# Parse arguments
+for arg in "$@"; do
+    case $arg in
+        --skip-build)
+            SKIP_BUILD=true
+            ;;
+        *)
+            PROJECT_LOCATION="$arg"
+            ;;
+    esac
+done
 
 cd $PROJECT_LOCATION
 
 echo "Using petalinux project location: $PROJECT_LOCATION"
 
-# Build the petalinux project
-# echo "Cleaning project"
-# petalinux-build -x mrproper
-echo "Configuring project"
-petalinux-config --silentconfig
-echo "Building project"
-petalinux-build
+if [ "$SKIP_BUILD" = false ]; then
+    # Build the petalinux project
+    # echo "Cleaning project"
+    # petalinux-build -x mrproper
+    echo "Configuring project"
+    petalinux-config --silentconfig
+    echo "Building project"
+    petalinux-build
+else
+    echo "Skipping build process as --skip-build flag is present"
+fi
 
 # Create the image
 echo "Packaging boot image"
