@@ -14,3 +14,4 @@ CONFIG_udev-rules
 CONFIG_mounts
 CONFIG_q7-mock
 CONFIG_systemd-analyze
+CONFIG_libgpiod-tools
