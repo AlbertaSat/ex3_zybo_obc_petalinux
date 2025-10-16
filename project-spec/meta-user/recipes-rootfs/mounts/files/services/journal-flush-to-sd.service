@@ -5,8 +5,8 @@ Requires=var-log.mount
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/journalctl --flush
-ExecStart=/usr/bin/journalctl --rotate
+ExecStart=/bin/journalctl --flush
+ExecStart=/bin/journalctl --rotate
 
 [Install]
 WantedBy=multi-user.target

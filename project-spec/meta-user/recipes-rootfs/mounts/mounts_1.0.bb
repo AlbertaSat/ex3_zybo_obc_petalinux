@@ -27,9 +27,8 @@ do_install() {
     install -d ${D}/mnt/backup/iris
     install -d ${D}/mnt/backup/dfgm
 
-    # Install verify-mounts script
-    install -d ${D}${bindir}
-    install -m 0755 ${WORKDIR}/verify-mounts.sh ${D}${bindir}/
+    # Create /var/log
+    install -d ${D}/var/log
 
     # Install systemd services and mounts
     install -d ${D}${systemd_system_unitdir}
@@ -43,7 +42,7 @@ SYSTEMD_SERVICE:${PN} = " \
     mnt-storage-fsw.mount \
     mnt-storage-iris.mount \
     mnt-storage-dfgm.mount \
-    var-log-bind.mount \
+    var-log.mount \
     enable-sd.service \
     journal-flush-on-shutdown.service \
     journal-flush-to-sd.service \
@@ -51,6 +50,7 @@ SYSTEMD_SERVICE:${PN} = " \
     "
 
 FILES:${PN} = "/mnt/* \
+               /var/log \
                ${systemd_system_unitdir}/*.service \
                ${systemd_system_unitdir}/*.mount \
                ${bindir}/verify-mounts.sh"

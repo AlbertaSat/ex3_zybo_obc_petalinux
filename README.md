@@ -87,10 +87,13 @@ After building the petalinux project, the boot image can be created using the fo
 petalinux-package --boot --force --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system.bit --u-boot
 
 # Create wic image, will be outputted to images/linux/petalinux-sdimage.wic
-petalinux-package --wic
+petalinux-package --wic -w ex3_32gb.wks
+petalinux-package --wic -w ex3_64gb.wks
 ```
 
 The wic image can then be used to either create a bootable SD card or emulate the system using QEMU.
+
+The `-w` argument select our prebuilt wic kickstart files for 32GB and 64GB SD cards which sets up partitions for housekeeping, logs, fsw data, iris, and dfgm while also expanding the root partition.
 
 #### Qemu Emulation
 

@@ -3,6 +3,7 @@ Description=Bind-mount storage log dir on /var/log
 After=var-log-prep.service
 Requires=var-log-prep.service
 Before=systemd-tmpfiles-setup.service
+DefaultDependencies=no
 
 [Mount]
 What=/mnt/storage/logs/system

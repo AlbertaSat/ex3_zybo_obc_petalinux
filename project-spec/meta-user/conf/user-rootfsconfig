@@ -13,3 +13,4 @@ CONFIG_gpsd
 CONFIG_udev-rules
 CONFIG_mounts
 CONFIG_q7-mock
+CONFIG_systemd-analyze

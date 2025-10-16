@@ -3903,6 +3903,7 @@ CONFIG_smem=y
 CONFIG_spidev-test=y
 CONFIG_spitools=y
 CONFIG_stressapptest=y
+CONFIG_systemd-analyze=y
 CONFIG_udev-rules=y
 
 #

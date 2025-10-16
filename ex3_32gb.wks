@@ -1,0 +1,24 @@
+# Description: Creates a partitioned SD card image. Boot files
+# are located in the first vfat partition. Rootfs will be in second ext4 partition.
+
+# part	GB	Gibibytes	        Mibibytes	        Kibibytes
+# use	30	27.9396772384644	28610.2294921875	29296875
+# hk	1.5	1.39698386192322	1430.51147460938	1464844
+# logs	1.5	1.39698386192322	1430.51147460938	1464844
+# fsw	5	4.65661287307739	4768.37158203125	4882813
+# iris	5	4.65661287307739	4768.37158203125	4882813
+# dfgm	3	2.79396772384644	2861.02294921875	2929688
+# boot	2	1.86264514923096	1907.3486328125	    1953125
+# root	12	11.1758708953857	11444.091796875	    11718750
+
+
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4 --fixed-size 1953125K
+part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label root --align 4 --fixed-size 11718750K
+
+# Extended partition with additional storage partitions
+part --ondisk mmcblk0 --fstype=ext4 --label ex3_storage_hk --align 4 --fixed-size 1464844K
+part --ondisk mmcblk0 --fstype=ext4 --label ex3_storage_logs --align 4 --fixed-size 1464844K
+part --ondisk mmcblk0 --fstype=ext4 --label ex3_storage_fsw --align 4 --fixed-size 4882813K
+part --ondisk mmcblk0 --fstype=ext4 --label ex3_storage_iris --align 4 --fixed-size 4882813K
+part --ondisk mmcblk0 --fstype=ext4 --label ex3_storage_dfgm --align 4 --fixed-size 2929688K
+
