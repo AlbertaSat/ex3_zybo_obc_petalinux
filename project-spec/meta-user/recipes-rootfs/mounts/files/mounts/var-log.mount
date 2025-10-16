@@ -1,0 +1,14 @@
+[Unit]
+Description=Bind-mount storage log dir on /var/log
+After=var-log-prep.service
+Requires=var-log-prep.service
+Before=systemd-tmpfiles-setup.service
+
+[Mount]
+What=/mnt/storage/logs/system
+Where=/var/log
+Type=none
+Options=bind
+
+[Install]
+WantedBy=local-fs.target

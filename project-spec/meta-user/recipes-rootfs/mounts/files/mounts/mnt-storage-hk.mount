@@ -1,0 +1,17 @@
+[Unit]
+Description=Mount housekeeping storage partition to /mnt/storage/hk
+After=enable-sd.service
+Wants=enable-sd.service
+# (Optional: tie to the device unit for robustness)
+# Requires=dev-disk-by\\x2dlabel-Logs.device
+# After=dev-disk-by\\x2dlabel-Logs.device
+
+
+[Mount]
+What=/dev/disk/by-label/ex3_storage_hk
+Where=/mnt/storage/hk
+Type=ext4
+Options=defaults,noatime,nodiratime,commit=60
+
+[Install]
+WantedBy=local-fs.target

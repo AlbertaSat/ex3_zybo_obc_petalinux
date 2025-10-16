@@ -1,0 +1,12 @@
+[Unit]
+Description=[ExAlta3] Flush runtime journal to SD
+After=var-log.mount systemd-journald.service
+Requires=var-log.mount
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/journalctl --flush
+ExecStart=/usr/bin/journalctl --rotate
+
+[Install]
+WantedBy=multi-user.target

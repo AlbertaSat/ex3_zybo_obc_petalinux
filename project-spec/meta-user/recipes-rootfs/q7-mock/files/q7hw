@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "q7hw mock"
+echo "-----------------"
+echo "This is a mock of the q7hw command available on the Q7 board."
+echo "On the Zybo board, this command is not available, so this mock does nothing."
+echo "-----------------"
+
+echo "You ran: q7hw $*"
+echo "No hardware interaction is performed on this platform."
+exit 0

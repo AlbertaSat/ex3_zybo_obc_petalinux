@@ -1,0 +1,11 @@
+[Unit]
+Description=Flush journal on shutdown
+DefaultDependencies=no
+Before=poweroff.target shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/journalctl --flush --rotate
+
+[Install]
+WantedBy=poweroff.target shutdown.target

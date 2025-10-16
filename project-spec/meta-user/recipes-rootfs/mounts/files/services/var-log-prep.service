@@ -1,0 +1,25 @@
+[Unit]
+Description=[ExAlta3] Prepare SD logs
+After=mnt-storage-logs.mount
+Requires=mnt-storage-logs.mount
+Before=var-log.mount systemd-tmpfiles-setup.service systemd-tmpfiles-setup-dev.service
+
+# If Logs isn't mounted, skip without failing the boot:
+ConditionPathIsMountPoint=/mnt/storage/logs
+
+[Service]
+Type=oneshot
+# Create /var/logs
+ExecStart=/bin/mkdir -p /var/log
+ExecStart=/bin/chmod 0755 /var/log
+
+# Target path for all system logs
+ExecStart=/bin/mkdir -p /mnt/storage/logs/system
+
+# Prepare persistent journal root
+ExecStart=/bin/mkdir -p /mnt/storage/logs/system/journal
+ExecStart=/bin/chown root:systemd-journal /mnt/storage/logs/system/journal
+ExecStart=/bin/chmod 2755 /mnt/storage/logs/system/journal
+
+[Install]
+WantedBy=local-fs.target

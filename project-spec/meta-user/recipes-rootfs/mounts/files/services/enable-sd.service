@@ -1,0 +1,12 @@
+[Unit]
+Description=Enable SD Card
+DefaultDependencies=no
+Before=local-fs-pre.target
+Wants=local-fs-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/q7hw set sd 0 on
+
+[Install]
+WantedBy=sysinit.target

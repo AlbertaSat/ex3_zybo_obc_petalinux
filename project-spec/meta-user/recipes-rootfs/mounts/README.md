@@ -1,0 +1,1 @@
+This recipe is responsible for creating the mount points for the SD cards so both can be mounted at the same time.

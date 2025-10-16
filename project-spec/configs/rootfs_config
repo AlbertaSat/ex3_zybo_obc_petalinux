@@ -3895,8 +3895,10 @@ CONFIG_Init-manager-systemd=y
 # CONFIG_gpio-demo is not set
 CONFIG_gpsd=y
 CONFIG_memtester=y
+CONFIG_mounts=y
 CONFIG_nano=y
 # CONFIG_peekpoke is not set
+CONFIG_q7-mock=y
 CONFIG_smem=y
 CONFIG_spidev-test=y
 CONFIG_spitools=y
