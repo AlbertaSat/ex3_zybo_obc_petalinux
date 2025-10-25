@@ -7,8 +7,7 @@ inherit systemd
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI = "file://verify-mounts.sh \
-           file://mounts/ \
+SRC_URI = "file://mounts/ \
            file://services/ \
            "
 
@@ -52,5 +51,4 @@ SYSTEMD_SERVICE:${PN} = " \
 FILES:${PN} = "/mnt/* \
                /var/log \
                ${systemd_system_unitdir}/*.service \
-               ${systemd_system_unitdir}/*.mount \
-               ${bindir}/verify-mounts.sh"
+               ${systemd_system_unitdir}/*.mount"
