@@ -3,23 +3,12 @@ DESCRIPTION = "Installs a prebuilt Rust toolchain into /opt/rust and exports PAT
 LICENSE = "CLOSED"
 
 SRC_URI = "https://static.rust-lang.org/dist/rust-1.93.0-armv7-unknown-linux-gnueabihf.tar.xz \
-           file://rust-1.93.0-armv7-unknown-linux-gnueabihf.tar.xz.asc \
-           file://rust-key.gpg \
 "
-SRC_URI[sha256sum] = ""
+SRC_URI[sha256sum] = "f79a675930b599dc738af9b759f4ebd0e9ba7953a9c107530eb847c163a4d54c"
 
 S = "${WORKDIR}/rust-1.93.0-armv7-unknown-linux-gnueabihf"
 
 INSANE_SKIP:${PN} += "already-stripped"
-
-DEPENDS += "gnupg-native"
-
-do_unpack:append() {
-    # Verify the vendor tarball signature using the shipped public key.
-    gpgv --keyring ${WORKDIR}/rust-key.gpg \
-         ${WORKDIR}/rust-1.93.0-armv7-unknown-linux-gnueabihf.tar.xz.asc \
-         ${WORKDIR}/rust-1.93.0-armv7-unknown-linux-gnueabihf.tar.xz
-}
 
 do_install() {
     # Use the vendor install script to lay out the toolchain under /opt/rust.
