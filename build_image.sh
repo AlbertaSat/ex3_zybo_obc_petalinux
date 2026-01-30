@@ -66,7 +66,15 @@ package_wic() {
 
     local tar_name="images/zybo_obc_${label}_${BRANCH}_${HASH}${DIRTY}.tar.gz"
     echo "Creating tar file: $tar_name"
-    tar -czvf "$tar_name" -C "$WIC_OUTDIR" "$wic_name"
+    if command -v pv >/dev/null 2>&1; then
+        local wic_path="${WIC_OUTDIR}/${wic_name}"
+        local wic_dir="${WIC_OUTDIR}"
+        local wic_size
+        wic_size=$(du -sb "$wic_path" | awk '{print $1}')
+        tar cf - -C "$wic_dir" "$wic_name" -P | pv -s "$wic_size" | gzip > "$tar_name"
+    else
+        tar -czvf "$tar_name" -C "$WIC_OUTDIR" "$wic_name"
+    fi
 }
 
 package_wic "32gb" "$WKS_32"
