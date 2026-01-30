@@ -314,6 +314,7 @@ petalinux-config -c kernel
 # Device Drivers > I2C Support > I2C hardware Bus Support > Xilinx I2C Controller
 # Device Drivers > Character Devices > Serial drivers > Xilinix uartlite serial port support
 # Device Drivers > Device Devices > USB drivers > USB_HUB_USB251XB
+# Device Drivers > Device Devices > PPS Support > PPS_CLIENT_GPIO
 
 petalinux-config -c rootfs
 # Set the following options:

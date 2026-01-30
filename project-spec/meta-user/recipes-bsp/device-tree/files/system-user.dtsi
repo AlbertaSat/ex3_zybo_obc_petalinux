@@ -7,12 +7,19 @@
 	// 	bootargs = "console=heracles_uart,115200n8 earlycon root=/dev/mmcblk0p2 rw rootwait";
 	// 	stdout-path = "serial0:115200n8";
 	// };
+
+	pps0: pps@0 {
+		compatible = "pps-gpio";
+		gpios = <&gpio0 78 0>;
+		status = "okay";
+	};
 	
 	aliases {
 		uhf_rs485_uart = &uart0;
 		dfgm_uart = &axi_uartlite_dfgm;
 		gps_uart = &axi_uartlite_gps;
 		heracles_uart = &axi_uartlite_heracles;
+		pps0 = &pps0;
 		// uhf_uart = &axi_uartlite_uhf;
 		sband_i2c = &axi_iic_sband;
 		db_i2c = &i2c1;
