@@ -7,6 +7,17 @@ WKS_32="${WKS_32:-ex3_32gb.wks}"
 WKS_64="${WKS_64:-ex3_64gb.wks}"
 WIC_OUTDIR="images/linux"
 
+# Get the current branch name and hash
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+HASH=$(git rev-parse --short HEAD)
+
+# Check if the working directory is dirty
+if [ -n "$(git status --porcelain)" ]; then
+    DIRTY="_dirty"
+else
+    DIRTY=""
+fi
+
 # Parse arguments
 for arg in "$@"; do
     case $arg in
@@ -38,17 +49,6 @@ fi
 # Create the image
 echo "Packaging boot image"
 petalinux-package --boot --force --fsbl images/linux/zynq_fsbl.elf --fpga images/linux/system.bit --u-boot
-
-# Get the current branch name and hash
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-HASH=$(git rev-parse --short HEAD)
-
-# Check if the working directory is dirty
-if [ -n "$(git status --porcelain)" ]; then
-    DIRTY="_dirty"
-else
-    DIRTY=""
-fi
 
 package_wic() {
     local label="$1"
