@@ -15,14 +15,14 @@
 	};
 	
 	aliases {
-		uhf_rs485_uart = &uart0;
 		dfgm_uart = &axi_uartlite_dfgm;
 		gps_uart = &axi_uartlite_gps;
-		heracles_uart = &axi_uartlite_heracles;
+        test_net_uart= &uart0;
+        heracles_uart = &uart1;
 		pps0 = &pps0;
-		// uhf_uart = &axi_uartlite_uhf;
-		sband_i2c = &axi_iic_sband;
-		db_i2c = &i2c1;
+		sband_i2c = &i2c1;
+		db_i2c = &axi_iic_db;
+        ant_i2c = &axi_iic_ant;
 		sband_spi = &spi0;
 	};
 };
@@ -38,8 +38,14 @@
     };
 };
 
-&axi_iic_sband {
+&axi_iic_ant {
+    symlink = "ant_i2c";
+	clock-frequency = <400000>;
+};
+
+&i2c1 {
     symlink = "sband_i2c";
+	clock-frequency = <100000>;
 };
 
 &axi_uartlite_dfgm {
@@ -53,16 +59,16 @@
 };
 
 &uart0 {
-    symlink = "uhf_rs485_uart";
+    symlink = "test_net_uart";
 };
 
-&axi_uartlite_heracles {
+&uart1 {
     symlink = "heracles_uart";
-    port-number = <0x01>;
 };
 
-&i2c1 {
+&axi_iic_db{
     symlink = "db_i2c";
+	clock-frequency = <100000>;
     usb2512b@2c {
         compatible = "microchip,usb2512b";
         reg = <0x2c>;
@@ -133,7 +139,7 @@
 		"MIO52",
 		"MIO53",
 		/* Bank 2 */
-		"STACK_UHF_ENABLE",
+		"UHF_UART_RX",
 		"SBAND_TR",
 		"STACK_SBAND_n_RESET",
 		"Q7_DFGMKnifeEN",

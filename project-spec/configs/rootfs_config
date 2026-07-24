@@ -3899,6 +3899,7 @@ CONFIG_memtester=y
 CONFIG_mounts=y
 CONFIG_nano=y
 # CONFIG_peekpoke is not set
+CONFIG_picocom=y
 CONFIG_q7-mock=y
 CONFIG_rustbin=y
 CONFIG_smem=y

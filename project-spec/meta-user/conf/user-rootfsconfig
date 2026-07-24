@@ -16,3 +16,4 @@ CONFIG_q7-mock
 CONFIG_systemd-analyze
 CONFIG_libgpiod-tools
 CONFIG_rustbin
+CONFIG_picocom
